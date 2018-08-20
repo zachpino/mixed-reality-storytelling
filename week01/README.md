@@ -11,20 +11,20 @@ Read through the [documentation](https://aframe.io/docs/0.8.0/introduction/) for
 -----
 
 - [Download Sublime First!](https://www.sublimetext.com)
-
 - [Simple VR Immersive Environment and Object Creation](vr.md)
 - [Animating VR Objects](animate.md)
-- [Creating an AR Marker](marker.md)
-- [Embedding Custom 3D Models in AR Overlays](custom.md)
+- [Creating and Using AR Markers](marker.md)
 
 -----
 
 ##### Homework
 
-All of these will be shared with the class.
+All of these *will be shared with the class*.
 
-- Continue working with A-Frame, and **compose an animated scene reminiscent of an artist of your choice**. 
+- Continue working with A-Frame, and **compose an animated scene reminiscent of an artist of your choice**. Push yourself on this, there are lots of interesting [resources available](https://github.com/ngokevin/kframe/tree/master/components/randomizer/) for a-frame.
 - Visit somewhere in Chicago a VR or AR experience, and document yourself there with a selfie. Research the experience as best as you can. With what tools was it made? 
-- Find an interesting digital AR/VR-enabled mobile application or website compatible with your Google Cardboard glasses. How was it made?
-- Investigate AR and VR development tools, hardware, software. If you could learn how to do anything in this course, what would it be?
+- Find an interesting digital AR/VR-enabled mobile application or website compatible with your Google Cardboard glasses. Can you find how it was created?
+- Investigate AR and VR development tools, hardware, and software. If you could learn how to do anything in this course, what would it be?
+
+
 

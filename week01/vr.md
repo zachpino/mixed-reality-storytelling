@@ -31,9 +31,7 @@ This is the basics of an A-Frame VR scene, wrapped in a simple HTML page.
 </html>
 ```
 
-The important bits are all contained within the `<a-scene>` element. Consult how you can style and add other 3D and 2D primitives in the [A-Frame documentation](https://aframe.io/docs/0.8.0/primitives/a-box.html) like spheres, cylinders, polyhedra, mapped images and videos, and global illumination sources. They are all added to the scene and edited in the same way. Before checking the documentation, could you guess how to add a sphere? How might you change the opacity of an entity?
-
-Note, for language 
+The important bits are all contained within the `<a-scene>` element. Consult how you can style and add other 3D and 2D primitives in the [A-Frame documentation](https://aframe.io/docs/0.8.0/primitives/a-box.html) like spheres, cylinders, polyhedra, mapped images and videos, and global illumination sources. All of these a-frame *entities* are added to the scene and styled in the same way. Before checking the documentation, could you guess how to add a sphere? How might you change the opacity of the sphere?
 
 -----
 

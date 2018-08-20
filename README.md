@@ -6,5 +6,5 @@ Fall 2018 Institute of Design course in creating persuasive, interactive experie
 
 - [Formal Syllabus](mixed-reality-prototyping-f18.pdf)
 
-- [Week 01 · Simple Marker AR and VR with A-Frame](week01/readme.md)
+- [Week 01 · Simple Marker AR and VR with A-Frame](week01/README.md)
 
