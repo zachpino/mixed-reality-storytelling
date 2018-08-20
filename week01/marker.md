@@ -56,7 +56,7 @@ open /Applications/Google\ Chrome.app --args --disable-web-security --user-data-
 </html>
 ```
 
-Multiple markers can be prepared and linked to different a-frame entities.
+Multiple markers can be prepared and linked to different a-frame entities. How could we animate an entity pinned to a marker?
 
 -----
 
@@ -66,5 +66,5 @@ Quit Google Chrome, and the reduced security will be restored.
 
 -----
 
-Now, do your [homework](../README.md)! 
+Now, do your [homework](README.md)! 
 
