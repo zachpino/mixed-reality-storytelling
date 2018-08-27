@@ -1,4 +1,4 @@
-### Week 1 · Simple Marker AR and VR with A-Frame 
+### Week 1 · Simple Marker VR with A-Frame 
 
 -----
 
@@ -13,7 +13,6 @@ Read through the [documentation](https://aframe.io/docs/0.8.0/introduction/) for
 - [Download Sublime First!](https://www.sublimetext.com)
 - [Simple VR Immersive Environment and Object Creation](vr.md)
 - [Animating VR Objects](animate.md)
-- [Creating and Using AR Markers](marker.md)
 
 -----
 
