@@ -6,5 +6,6 @@ Fall 2018 Institute of Design course in creating persuasive, interactive experie
 
 - [Formal Syllabus](mixed-reality-storytelling-f18.pdf)
 
-- [Week 01 · Simple Marker AR and VR with A-Frame](week01/README.md)
+- [Week 01 · Simple Marker VR with A-Frame](week01/README.md)
+- [Week 02 · Simple Marker AR with A-Frame and Modeling in Maya](week02/README.md)
 

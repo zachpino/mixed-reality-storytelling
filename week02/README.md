@@ -1,4 +1,4 @@
-### Week 2 · Simple Marker AR with A-Frame and Maya
+### Week 2 · Simple Marker AR with A-Frame and Modeling in Maya
 
 -----
 
