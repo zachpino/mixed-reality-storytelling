@@ -8,7 +8,15 @@ A-Frame offers lots of awesome animation tools, but it still is not nearly as ex
 
 ##### Export Settings
 
-After [installing the plugin](https://github.com/matiascodesal/maya-glTF) into Maya and modeling and animating...
+After [installing the plugin](https://github.com/matiascodesal/maya-glTF) into Maya and modeling and animating, we can get our geometry out of Maya.
+
+If you want to use the *smooth preview* of your model, make sure you are in `Object` select mode and select the object you want to lock in as a Catmull-Clark smoothed version.
+
+```
+Modify -> Convert -> Smooth Mesh Preview to Polygons
+```
+
+Then, select a single or multiple objects to export.
 
 ```
 File -> Export All

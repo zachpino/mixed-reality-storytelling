@@ -40,4 +40,9 @@ Sign-up first, and then download and install the *2018 English Version* for your
 
 ##### Homework
 
-To be determined! 
+Follow the [tutorials from this week](embed.md) to create an animated AR scene in A-Frame featuring a Maya model. Use the [referenced tutorials above](agenda) to reinforce and accelerate your mesh-based modeling and animating skills. 
+
+Install the glTF plugin into Maya, create a form, animate it, export it, and make sure it works in A-Frame for sharing! Design a rocket ship or a fish or bird and have it move around relative to your marker.
+
+We will also discuss our choice of tools to learn as a class (as assigned first week). Have your arguments ready! 
+
