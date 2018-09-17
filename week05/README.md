@@ -83,3 +83,5 @@ public class ReticleTest : MonoBehaviour {
 ##### Homework
 
 Complete the [Roll-a-Ball](https://unity3d.com/learn/tutorials/s/roll-ball-tutorial) tutorial series on the Unity website.
+
+If you want an additional challenge, try out this [twitter visualization tutorial](https://www.sitepoint.com/visualizing-a-twitter-stream-in-vr-with-three-js-and-node/).
