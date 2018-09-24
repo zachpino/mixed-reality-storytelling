@@ -30,7 +30,7 @@ open /Applications/Google\ Chrome.app --args --disable-web-security --user-data-
 In CMD (on Windows)...
 
 ```
-chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security
+C:\Program Files(x86)\Google\Chrome\Application\chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security
 ```
 
 -----
