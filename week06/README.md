@@ -19,7 +19,7 @@ Let's construct a model for an interactive story in Unity. It will be composed o
 
 *Switch Platform* to Android, and enable VR Support for *Cardboard* in Player Settings under *XR Options*.
 
-`Assets -> Import Package` and bring in all of the assets in the ([Google VR Unity Package](https://github.com/googlevr/gvr-unity-sdk/releases).
+`Assets -> Import Package` and bring in all of the assets in the [Google VR Unity Package](https://github.com/googlevr/gvr-unity-sdk/releases).
 
 -----
 
