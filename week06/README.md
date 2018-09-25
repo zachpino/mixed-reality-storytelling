@@ -10,6 +10,7 @@ Let's construct a model for an interactive story in Unity. It will be composed o
 - Sound Source Helping *Hero* find the *Mentor*
 
 ![intnar](intnar.gif)
+
 -----
 
 ### Change Build Settings and Player Settings, and Import GVR Assets
