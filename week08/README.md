@@ -1,18 +1,28 @@
 ### Storyboarding VR and AR Experiences
 
+![vr scout](http://l3apq3bncl82o596k2d1ydn1-wpengine.netdna-ssl.com/wp-content/uploads/2016/04/samsung-bedtime-stories-vr3.jpg)
+
+- [Storyboarding Presentation](storyboard-pres.pdf)
+
+-----
+
+##### Templates
+
+- [VR Sketch Sheets](vr-sketch-sheet.pdf)
+- [VR Storyboard Templates](vr-storyboard.pdf)
+
 -----
 
 #### Exercise
 
 Let's attempt to storyboard a VR experience, from an already interactive narrative...
 
-[Super Mario Bros Emulator](https://supermarioemulator.com/mario.php)
-[Mario History](https://www.youtube.com/watch?v=PhBJq9pc4qo)
+- [Super Mario Bros Emulator](https://supermarioemulator.com/mario.php)
+- [Mario History](https://www.youtube.com/watch?v=PhBJq9pc4qo)
 
 And from non-interactive narratives...
 
-[Kiwi](https://www.youtube.com/watch?v=sdUUx5FdySs)
-[Burn-E](burn-e.mp4)
+- [Kiwi](https://www.youtube.com/watch?v=sdUUx5FdySs)
 
 -----
 
@@ -32,6 +42,6 @@ And from non-interactive narratives...
 
 #### Homework
 
-Begin work on your brief choice, and get me questions ASAP via email.
+Begin work on your [brief choice](../briefs.md), and get me questions ASAP via email.
 
 In particular, aim to have narrowed your direction, and bring in a partial storyboard and some raw materials to work with during class next week. Assume next week is dedicated to art direction and aesthetics work, as well as model building. Worktime!
