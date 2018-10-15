@@ -1,11 +1,11 @@
-### Week Interactive Story in Unity
+### Custom Animations in Unity
 
 -----
 
 Let's construct a model for an interactive story in Unity. It will be composed of the following parts.
 
-- 1st-Person, Movable *Hero* Player
-- Searched-For *Target* Character
+- 1st-Person, Movable *Hero* Player that Can Move Around in 2 Different Ways
+- Engagable, Animated Non-Player Character
 - 2 *Options* Offered by *Target* to *Hero*
 - Sound Source Helping *Hero* find the *Mentor*
 
@@ -29,7 +29,7 @@ Your scene should look like this...
 
 ![scene hierarchy](hierarchy.png)
 
-Blue objects are imported prefabs from the GVR asset package (search for their names). Black objects are created by right-clicking in the Hierarchy and adding 3D Objects. Everything not listed just uses the default settings.
+Blue objects are imported prefabs from the GVR asset package (search for their names). Black objects are created by right-clicking in the Hierarchy and adding 3D Objects. Everything not listed below just uses the default settings.
 
 -----
 
