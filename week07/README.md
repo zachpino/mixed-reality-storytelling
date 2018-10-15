@@ -1,15 +1,13 @@
-### Interactive Story in Unity
+### Custom Animations in Unity
 
 -----
 
 Let's construct a model for an interactive story in Unity. It will be composed of the following parts.
 
-- 1st-Person, Movable *Hero* Player
-- Searched-For *Target* Character
-- 2 *Options* Offered by *Target* to *Hero*
-- Sound Source Helping *Hero* find the *Mentor*
+- 1st-Person, Movable *Hero* Player that Can Move Around in 2 Different Ways and Jump
+- Engagable, Animated Non-Player Character with Custom Animations
 
-![intnar](intnar.gif)
+![ca](customanimation.gif)
 
 -----
 
@@ -23,13 +21,28 @@ Let's construct a model for an interactive story in Unity. It will be composed o
 
 -----
 
+### Model and Animate in Maya
+
+- Model your character at rest
+- If desired... Modify -> Convert -> Smooth Mesh Preview to Polygons
+- Make a copy of the file
+- Rig your model with Quick Rig or by creating an IK skeleton
+- Create your animations in an extended timeline. Make sure your character comes back to the rest position after each animation, and leave room in your timeline for editing.
+- Export with the following settings in File -> Game Exporter
+
+![game exporter](gameexporter.png)
+
+After importing the .fbx file into Maya, select the mesh in the asset window and, under *Rig*, set your *Animation Type* to *Legacy*.
+
+-----
+
 ### Create Scene Hierarchy
 
 Your scene should look like this...
 
 ![scene hierarchy](hierarchy.png)
 
-Blue objects are imported prefabs from the GVR asset package (search for their names). Black objects are created by right-clicking in the Hierarchy and adding 3D Objects. Everything not listed just uses the default settings.
+Blue objects are imported prefabs from the GVR asset package (search for their names) and Maya objects. Black objects are created by right-clicking in the Hierarchy and adding 3D Objects. Everything not listed below just uses the default settings.
 
 -----
 
@@ -45,41 +58,130 @@ More settings, like tree creation and deployment, are explained in this [Terrain
 
 ![player](player.png)
 
-*Add component* on the player to add a *Character Controller* as well as a new script called *walk* that looks like this.
+*Add component* on the player to add a *Rigidbody*, *Capsule Collider*, as well as a new script called *Player* that looks like this...
+
+```c#
+using UnityEngine;
+using System.Collections;
+
+public class player : MonoBehaviour
+{
+    private const int RIGHT_ANGLE = 90;
+
+    // This variable determinates if the player will move or not 
+    private bool isWalking = false;
+
+    Transform mainCamera = null;
+
+    //This is the variable for the player speed
+    [Tooltip("With this speed the player will move.")]
+    public float speed;
+
+    [Tooltip("Activate this checkbox if the player shall move when the Cardboard trigger is pulled.")]
+    public bool walkWhenTriggered;
+
+    [Tooltip("Activate this checkbox if the player shall move when he looks below the threshold.")]
+    public bool walkWhenLookDown;
+
+    [Tooltip("This has to be an angle from 0° to 90°")]
+    public double thresholdAngle;
+
+    [Tooltip("Activate this Checkbox if you want to freeze the y-coordiante for the player. " +
+             "For example in the case of you have no collider attached to your CardboardMain-GameObject" +
+             "and you want to stay in a fixed level.")]
+    public bool freezeYPosition;
+
+    [Tooltip("This is the fixed y-coordinate.")]
+    public float yOffset;
+
+    void Start()
+    {
+        mainCamera = Camera.main.transform;
+    }
+
+    void Update()
+    {
+        // Walk when the Cardboard Trigger is used 
+        if (walkWhenTriggered && !walkWhenLookDown && !isWalking && Input.GetButtonDown("Fire1"))
+        {
+            isWalking = true;
+        }
+        else if (walkWhenTriggered && !walkWhenLookDown && isWalking && Input.GetButtonDown("Fire1"))
+        {
+            isWalking = false;
+        }
+
+        // Walk when player looks below the threshold angle 
+        if (walkWhenLookDown && !walkWhenTriggered && !isWalking &&
+            mainCamera.transform.eulerAngles.x >= thresholdAngle &&
+            mainCamera.transform.eulerAngles.x <= RIGHT_ANGLE)
+        {
+            isWalking = true;
+        }
+        else if (walkWhenLookDown && !walkWhenTriggered && isWalking &&
+                 (mainCamera.transform.eulerAngles.x <= thresholdAngle ||
+                 mainCamera.transform.eulerAngles.x >= RIGHT_ANGLE))
+        {
+            isWalking = false;
+        }
+
+        // Walk when the Cardboard trigger is used and the player looks down below the threshold angle
+        if (walkWhenLookDown && walkWhenTriggered && !isWalking &&
+            mainCamera.transform.eulerAngles.x >= thresholdAngle &&
+            Input.GetButtonDown("Fire1") &&
+            mainCamera.transform.eulerAngles.x <= RIGHT_ANGLE)
+        {
+            isWalking = true;
+        }
+        else if (walkWhenLookDown && walkWhenTriggered && isWalking &&
+                 mainCamera.transform.eulerAngles.x >= thresholdAngle &&
+                 (Input.GetButtonDown("Fire1") ||
+                 mainCamera.transform.eulerAngles.x >= RIGHT_ANGLE))
+        {
+            isWalking = false;
+        }
+
+        if (isWalking)
+        {
+            Vector3 direction = new Vector3(mainCamera.transform.forward.x, 0, mainCamera.transform.forward.z).normalized * speed * Time.deltaTime;
+            Quaternion rotation = Quaternion.Euler(new Vector3(0, -transform.rotation.eulerAngles.y, 0));
+            transform.Translate(rotation * direction);
+        }
+
+        if (freezeYPosition)
+        {
+            transform.position = new Vector3(transform.position.x, yOffset, transform.position.z);
+        }
+    }
+}
+```
+
+Also add a script called *Jump* that looks like this...
 
 ```c#
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class walk : MonoBehaviour {
-    private CharacterController _controller ;
+public class jump : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        //reference character controller script
-        _controller = GetComponent<CharacterController>();
+        
     }
     
     // Update is called once per frame
-    void Update () {
-        //capture left/right input
-        float x = Input.GetAxis("Horizontal");
-        //gravity
-        float y = -.3f;
-        //capture up/down and map it to forward/back
-        float z = Input.GetAxis("Vertical");
-
-        //synthesize a new vector
-        Vector3 move = new Vector3(x, y, z);
-
-        //move character
-        _controller.Move(move * Time.deltaTime * 3);
+    void FixedUpdate () {
+        if (Input.GetKeyDown("space"))
+        {
+            GetComponent<Rigidbody>().AddForce(0, 1000, 0);
+        }
     }
 }
+
 ```
 
-Make sure the *CharacterController* settings place the capsule collider mesh totally on top of the terrain by editing its *Center*, *Radius*, and *Height*.
+Make sure the capsule collider mesh is placed totally on top of the terrain by editing its *Center*, *Radius*, and *Height*. 
 
 -----
 
@@ -91,77 +193,26 @@ Drag a *GVR Pointer Physics Raycaster* from the Assets window to the Main Camera
 
 -----
 
-#### Target Settings
+#### NPC Settings
 
-![target](target.png)
+![npc](npc.png)
 
-This 3D Capsule Object has an *Event Trigger* component added to it, which activates a script called *pace* that moves the character back and forth, hides the options on launch, and shows the options objects if the *Hero* makes eye contact.
+This imported Maya character has animations that can be triggered by user interactions. 
 
-```c#
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+*Add component* on the NPC to add a *Rigidbody*, *Capsule Collider*, *Animation*, *Event Trigger*, as well as a new script called *Wave* that looks like this...
 
-public class pace : MonoBehaviour {
-
-    // Use this for initialization
-    void Start () {
-        //hide our option boxes on launch
-        GameObject.Find("option1").GetComponent<Renderer>().enabled = false;
-        GameObject.Find("option2").GetComponent<Renderer>().enabled = false;
-    }
-
-    //default movement direction and speed
-    float increment = .05f;
-
-    // Update is called once per frame
-    void Update () {
-
-        //change capsule movement under certain conditions
-        if (this.transform.position.x > -3){
-            increment = -.05f;
-        }
-        else if (this.transform.position.x < -8){
-            increment = .05f;
-        }
-
-        //create new x position
-        float x = this.transform.position.x + increment;
-
-        //move object
-        this.transform.position = new Vector3(x, this.transform.position.y, this.transform.position.z);
-    }
-
-    public void showOptions(){
-        //if capsule receives pointer enter show the options
-        GameObject.Find("option1").GetComponent<Renderer>().enabled = true;
-        GameObject.Find("option2").GetComponent<Renderer>().enabled = true;
-        increment = 0;
-    }
-}
-
-```
-
------
-
-#### Option Box Settings
-
-![option](option.png)
-
-These cubes are placed above the *Target* capsule and have a similar *Event Trigger* attached to each, with a script called *colorChange1* and *colorChange2* respectively.
-
-These scripts are near identical and look like this. Only the final color is different.
 
 ```c#
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class colorChange : MonoBehaviour {
+public class wave : MonoBehaviour {
+    private Animation charAnimation;
 
     // Use this for initialization
     void Start () {
-        
+        charAnimation = GameObject.Find("patrick_classtime").GetComponent<Animation>();
     }
     
     // Update is called once per frame
@@ -169,22 +220,14 @@ public class colorChange : MonoBehaviour {
         
     }
 
-    //when the option is point clicked...
-
-    public void selectOption(){
-        //look for the target and change its color
-        GameObject.Find("Target").GetComponent<Renderer>().material.color = new Color(0.0f,0.0f,1.0f);
+    public void  Greeting () {
+        charAnimation.Play("wave");
     }
 }
+
 ```
 
------
-
-#### Audio Source Settings
-
-![audio source](audiosource.png)
-
-Change the *AudioClip* to an imported mp3 file. Make sure you adjust the *Spatial Blend* to fully 3D and then adjust the *Min* and *Max Distance* to change the sound's reach.
+Make sure the animations are setup correctly in the *Animation Component*, and that the *Capsule Collider* is sized-appropriately to the model. Connect everything together in the *Event Trigger* settings.
 
 -----
 
@@ -198,4 +241,4 @@ Change the *AudioClip* to an imported mp3 file. Make sure you adjust the *Spatia
 
 ##### Homework
 
-Week off! 
+Move the Studio!
