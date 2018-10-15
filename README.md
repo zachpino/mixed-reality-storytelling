@@ -14,4 +14,6 @@ Fall 2018 Institute of Design course in creating persuasive, interactive experie
 - [Week 06 · Interactive Story in Unity](week06/README.md)
 - [Week 07 · Custom Animations in Unity](week07/README.md)
 
-- [Week 08 · Storyboarding VR and AR Experience](week08/README.md)
+- [Final Briefs](briefs.md)
+
+- [Week 08 · Storyboarding VR and AR Experiences](week08/README.md)

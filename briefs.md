@@ -6,7 +6,7 @@ Everyone should take advantage of Zach's time! Send Zach questions by the Friday
 
 Regardless of chosen brief, experiences will be evaluated on conceptual ambition and novelty (15%), regular development and class participation (25%), art direction and aesthetic coherency (30%), and final coded delibverable (30%).
 
-Check-in deliverables and presentations will be introduced as needed to maintain regular progress.
+Check-in deliverables and presentations will be introduced as needed to maintain regular progress. **Work is due for presentation on December 3, and all additional materials need to be submitted by December 10.**
 
 Have fun with these! 
 
@@ -70,3 +70,10 @@ Create an interactive musical VR experience based on a song, album, or soundscap
 	- What is the interplay between handmade and generative content?
 	- Does your experience help users understand how the muscial composition comes together from disparate parts? Or rather does it attempt to further mystify musicality?
 
+
+
+-----
+
+Homework for the Week
+
+Create a storyboard 
