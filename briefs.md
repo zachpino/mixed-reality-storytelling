@@ -70,10 +70,3 @@ Create an interactive musical VR experience based on a song, album, or soundscap
 	- What is the interplay between handmade and generative content?
 	- Does your experience help users understand how the muscial composition comes together from disparate parts? Or rather does it attempt to further mystify musicality?
 
-
-
------
-
-Homework for the Week
-
-Create a storyboard 
