@@ -227,6 +227,8 @@ public class wave : MonoBehaviour {
 
 ```
 
+Switch the script to reflect the appropriate name of your animated model and its animations.
+
 Make sure the animations are setup correctly in the *Animation Component*, and that the *Capsule Collider* is sized-appropriately to the model. Connect everything together in the *Event Trigger* settings.
 
 -----
