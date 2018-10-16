@@ -155,32 +155,6 @@ public class player : MonoBehaviour
     }
 }
 ```
-
-Also add a script called *Jump* that looks like this...
-
-```c#
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class jump : MonoBehaviour {
-
-    // Use this for initialization
-    void Start () {
-        
-    }
-    
-    // Update is called once per frame
-    void FixedUpdate () {
-        if (Input.GetKeyDown("space"))
-        {
-            GetComponent<Rigidbody>().AddForce(0, 1000, 0);
-        }
-    }
-}
-
-```
-
 Make sure the capsule collider mesh is placed totally on top of the terrain by editing its *Center*, *Radius*, and *Height*. 
 
 -----
