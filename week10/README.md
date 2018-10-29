@@ -2,6 +2,8 @@
 
 Some targeted tutorials to inspire our work time!
 
+Also, a really [great interview worth reading/listening to](https://www.pri.org/stories/2016-03-14/how-advances-virtual-reality-will-change-how-we-work-and-communicate) about VR's opportunity for healing the damage done to empathy, compassion, and social structures by social media. A [related article](https://futurism.com/virtual-reality-social-media-glimpse) on Futurism talks about similar studies and opportunities from a slightly less optimistic point of view.
+
 -----
 
 ### Everyone
