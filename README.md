@@ -17,3 +17,5 @@ Fall 2018 Institute of Design course in creating persuasive, interactive experie
 - [Final Briefs](briefs.md)
 
 - [Week 08 · Storyboarding VR and AR Experiences](week08/README.md)
+- [Week 09 · Music Visualizer and Worktime](https://www.youtube.com/watch?v=wtXirrO-iNA&t=1185s)
+- [Week 10 · Targeted Tutorials!](week10/README.md) 
